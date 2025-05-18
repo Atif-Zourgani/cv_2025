@@ -1,13 +1,32 @@
-/* Styles personnalisés */
-html {
-    scroll-behavior: smooth;
+/* Optimisations de performance */
+:root {
+    --primary-color: #4f46e5;
+    --text-color: #1f2937;
+    --bg-color: #f9fafb;
 }
 
-/* Animation pour les sections */
+/* Styles de base optimisés */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Optimisation des animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Animation pour les sections avec will-change */
 section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
 }
 
 section.visible {
@@ -15,9 +34,10 @@ section.visible {
     transform: translateY(0);
 }
 
-/* Style pour les liens de navigation */
+/* Style pour les liens de navigation avec GPU acceleration */
 nav a {
     position: relative;
+    transform: translateZ(0);
 }
 
 nav a::after {
@@ -27,17 +47,20 @@ nav a::after {
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: #4f46e5;
+    background-color: var(--primary-color);
     transition: width 0.3s ease-in-out;
+    will-change: width;
 }
 
 nav a:hover::after {
     width: 100%;
 }
 
-/* Style pour les cartes de compétences */
+/* Optimisation des cartes avec GPU acceleration */
 .bg-white {
     transition: transform 0.3s ease-in-out;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .bg-white:hover {
@@ -47,23 +70,48 @@ nav a:hover::after {
 /* Style pour le formulaire de contact */
 input:focus, textarea:focus {
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    outline: none;
 }
 
-/* Style pour les badges de technologies */
+/* Optimisation des badges */
 .bg-indigo-100 {
     transition: background-color 0.3s ease-in-out;
+    will-change: background-color;
 }
 
 .bg-indigo-100:hover {
     background-color: #e0e7ff;
 }
 
-/* Style pour le bouton de contact */
+/* Optimisation du bouton de contact */
 button[type="submit"] {
     transition: all 0.3s ease-in-out;
+    will-change: transform, box-shadow;
 }
 
 button[type="submit"]:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Optimisation des images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Optimisation pour l'impression */
+@media print {
+    body {
+        background: white;
+    }
+    
+    section {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .no-print {
+        display: none;
+    }
 } 
