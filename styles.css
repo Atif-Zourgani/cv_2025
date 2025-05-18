@@ -114,4 +114,36 @@ img {
     .no-print {
         display: none;
     }
+}
+
+/* --- CSS custom déplacé depuis index.html --- */
+@media (max-width: 768px) {
+  .desktop-nav { display: none !important; }
+  .profile-img-mobile {
+    margin: 2rem auto 0 auto;
+    display: block;
+    position: static;
+  }
+  .section-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  h2, h3, h4 {
+    font-size: 1.2rem !important;
+  }
+  #contact-form input, #contact-form textarea {
+    font-size: 1rem;
+  }
+  #contact-form button {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 769px) {
+  .desktop-nav { display: block; }
 } 
