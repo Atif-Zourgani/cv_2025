@@ -53,24 +53,26 @@
     <button id="backToTop" aria-label="Retour en haut" style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:10000;background:rgba(79,70,229,0.7);color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-size:1.5rem;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(79,70,229,0.95)'" onmouseout="this.style.background='rgba(79,70,229,0.7)'" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
     <!-- Bouton téléchargement PDF -->
     <a href="CV Atif Mickaël Zourgani - Développeur Symfony & Full Stack à Bordeaux.pdf" download class="fixed" id="downloadCVBtn" aria-label="Télécharger le CV en PDF"
-       style="position:fixed;bottom:2rem;right:5.5rem;z-index:10000;background:rgba(16,16,16,0.7);color:#fff;border:none;border-radius:24px;width:auto;min-width:48px;height:48px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-size:1.1rem;display:flex;align-items:center;justify-content:center;gap:0.5em;padding:0 18px;cursor:pointer;transition:background 0.2s;text-decoration:none;will-change:background;"
+       style="display:none;position:fixed;bottom:2rem;right:5.5rem;z-index:10000;background:rgba(16,16,16,0.7);color:#fff;border:none;border-radius:24px;width:auto;min-width:48px;height:48px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-size:1.1rem;display:flex;align-items:center;justify-content:center;gap:0.5em;padding:0 18px;cursor:pointer;transition:background 0.2s;text-decoration:none;will-change:background;"
        onmouseover="this.style.background='rgba(16,16,16,0.92)'" onmouseout="this.style.background='rgba(16,16,16,0.7)'">
       <i class="fas fa-file-arrow-down"></i>
       <span style="font-weight:600;letter-spacing:0.5px;">CV PDF</span>
     </a>
     <!-- Header -->
     <header class="bg-white shadow-sm">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <h1 class="text-2xl font-bold text-gray-800">AMZ</h1>
-                <img src="avatar.png" alt="Avatar de Atif Mickaël Zourgani" class="w-10 h-10 rounded-full ml-4 shadow" loading="lazy">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex flex-col items-start md:flex-row md:items-center md:justify-between">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <span class="text-xl md:text-2xl font-bold text-gray-800">WebAtif</span>
+                    <img src="avatar.png" alt="Avatar de Atif Mickaël Zourgani" class="w-7 h-7 md:w-10 md:h-10 rounded-full ml-3 md:ml-4 shadow" loading="lazy">
+                </div>
+                <div class="flex flex-row w-full md:w-auto md:flex-row md:space-x-4 space-x-4 md:space-y-0 justify-start md:justify-end">
+                    <a href="#experience" class="text-gray-600 hover:text-gray-900">Expérience</a>
+                    <a href="#formateur" class="text-gray-600 hover:text-gray-900">Formateur</a>
+                    <a href="#skills" class="text-gray-600 hover:text-gray-900">Compétences</a>
+                </div>
             </div>
-            <div class="desktop-nav space-x-4">
-                <a href="#experience" class="text-gray-600 hover:text-gray-900">Expérience</a>
-                <a href="#formateur" class="text-gray-600 hover:text-gray-900">Formateur</a>
-                <a href="#skills" class="text-gray-600 hover:text-gray-900">Compétences</a>
-                <!-- <a href="#projects" class="text-gray-600 hover:text-gray-900">Projets</a> -->
-            </div>
+            <div class="block md:hidden border-b border-gray-200 mt-4"></div>
         </nav>
     </header>
 
@@ -78,16 +80,23 @@
     <section class="container mx-auto px-4 py-16">
         <div class="flex flex-col md:flex-row items-center justify-between">
             <div class="md:w-1/2">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Atif Mickaël Zourgani</h2>
-                <h3 class="text-2xl text-indigo-600 mb-6">Développeur Full Stack</h3>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight text-left">
+                  Atif Mickaël Zourgani<br class="hidden md:block">
+                  <span class="font-normal">Développeur Symfony & Full Stack à Bordeaux</span>
+                </h1>
+                <h2 class="text-2xl text-indigo-600 mb-6">Développeur passionné et formateur</h2>
                 <p class="text-gray-700 mb-6">
-                    Développeur passionné et formateur basé à Bordeaux, j'aime résoudre des problèmes, relever des défis techniques et transmettre mon savoir. Curieux, positif et orienté résultats, j'accorde une grande importance au travail d'équipe et à la collaboration.
+                    J'aime résoudre des problèmes, relever des défis techniques et transmettre mon savoir. Curieux, positif et orienté résultats, j'accorde une grande importance au travail d'équipe et à la collaboration.
                 </p>
-                <p class="text-gray-600 mb-2">
-                    <i class="fas fa-phone-alt text-indigo-600 mr-2"></i>
-                    <a href="tel:0769679852" class="hover:underline">07 69 67 98 52</a>
-                </p>
-                <div class="flex space-x-4">
+                <!-- Partie contact améliorée mobile/desktop -->
+                <div class="flex flex-col items-center md:items-start space-y-2 mt-4">
+                  <div class="flex items-center text-gray-700 text-base">
+                    <p class="text-gray-600 mb-2">
+                        <i class="fas fa-phone-alt text-indigo-600 mr-2"></i>
+                        <a href="tel:0769679852" class="hover:underline">07 69 67 98 52</a>
+                    </p>
+                  </div>
+                  <div class="flex space-x-4">
                     <a href="https://github.com/Atif-Zourgani" class="text-gray-600 hover:text-gray-900" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github text-2xl"></i>
                     </a>
@@ -98,7 +107,8 @@
                         <i class="fas fa-envelope text-2xl"></i>
                     </a>
                 </div>
-                <a href="CV Atif Mickaël Zourgani - Développeur Symfony & Full Stack à Bordeaux.pdf" download class="inline-flex items-center mt-4 text-indigo-600 font-semibold hover:underline" style="font-size:1.1rem;"><i class="fas fa-file-arrow-down mr-2"></i>CV PDF</a>
+                  <a href="CV Atif Mickaël Zourgani - Développeur Symfony & Full Stack à Bordeaux.pdf" download class="mt-2 text-indigo-600 font-semibold flex items-center hover:underline"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="mr-2"><path d="M12 3v14m0 0-4-4m4 4 4-4" stroke="#4f46e5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="17" width="16" height="4" rx="2" fill="#4f46e5" fill-opacity="0.1"/></svg>CV PDF</a>
+                </div>
             </div>
             <div class="md:w-1/2 mt-8 md:mt-0">
                 <img src="avatar.png" alt="Avatar de Atif Mickaël Zourgani" 
@@ -168,7 +178,10 @@
     <!-- Section Formateur -->
     <section id="formateur" class="bg-white py-16">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8">Formateur en développement web (2020 – aujourd'hui)</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 leading-tight">
+          Formateur en développement web<br class="hidden md:block">
+          <span class="font-normal">(2020 – aujourd'hui)</span>
+        </h2>
         <div class="mb-4">
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Écoles principales :</h3>
           <div class="flex flex-wrap gap-2 mb-8">
@@ -310,20 +323,49 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 Atif Mickaël Zourgani. Tous droits réservés.</p>
+        <div class="container mx-auto px-4 text-center flex flex-col md:flex-row md:justify-between md:items-center">
+            <p class="mb-4 md:mb-0">&copy; 2025 Atif Mickaël Zourgani. Tous droits réservés.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://github.com/Atif-Zourgani" class="footer-social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/atif-micka%C3%ABl/" class="footer-social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="mailto:atif.developpeur@gmail.com" class="footer-social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
+    <style>
+      .footer-social-link i {
+        color: #49515a;
+        transition: color 0.2s;
+      }
+      .footer-social-link:hover i {
+        color: #fff;
+      }
+    </style>
+
     <script src="script.js"></script>
     <script>
-      // Affichage du bouton retour en haut après scroll
+      // Masquer le bouton CV au chargement (sécurité)
+      document.addEventListener('DOMContentLoaded', function() {
+        var cvBtn = document.getElementById('downloadCVBtn');
+        if (cvBtn) cvBtn.style.display = 'none';
+      });
+      // Affichage du bouton retour en haut et du bouton téléchargement CV après scroll
       window.addEventListener('scroll', function() {
         var btn = document.getElementById('backToTop');
+        var cvBtn = document.getElementById('downloadCVBtn');
         if(window.scrollY > 200) {
           btn.style.display = 'block';
+          cvBtn.style.display = 'flex';
         } else {
           btn.style.display = 'none';
+          cvBtn.style.display = 'none';
         }
       });
     </script>
